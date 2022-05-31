@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 2.8.0)
+
+PROJECT(tiny_hawk)
+
+INCLUDE_DIRECTORIES(include)
+
+AUX_SOURCE_DIRECTORY(src DIR_SRCS)
+
+SET(SELECT_TEST ${DIR_SRCS})
+
+ADD_EXECUTABLE(${PROJECT_NAME} ${SELECT_TEST})
+
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} pthread)
+
+find_package(OpenSSL REQUIRED)
+target_link_libraries(${PROJECT_NAME} OpenSSL::SSL)
