@@ -384,11 +384,13 @@
             document.getElementById("messageList").innerHTML = "";
         }
         function wrapperMessage(messageName, messageContent) {
-            var messageWrapper = document.createElement("div");
+            let messageWrapper = document.createElement("div");
             messageWrapper.className = "message-wrapper";
             messageWrapper.appendChild(messageName);
             messageWrapper.appendChild(messageContent);
-            document.getElementById("messageList").appendChild(messageWrapper);
+            let messageList = document.getElementById("messageList");
+            messageList.appendChild(messageWrapper);
+            messageList.scrollTop = messageList.scrollHeight;
         }
         function sendMessage() {
             let messageInput = document.getElementById("messageInput");

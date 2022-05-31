@@ -17,7 +17,6 @@ int main(int argc, char **argv)
 	exit(1);
     }
     sprintf(port, "%d", atoi(argv[1]) + 1);
-    printf("%s\n", port);
     httpfd = Open_listenfd(argv[1]);
     wsfd = Open_listenfd(port);
     init_pool(httpfd, wsfd, &pool);
